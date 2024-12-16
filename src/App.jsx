@@ -35,12 +35,18 @@ function App() {
 
   // Calculate total pages whenever data changes
   useEffect(() => {
-    setTotalPages(Math.ceil(data.length / rowsPerPage));
+    setTotalPages(Math.ceil(filteredData.length / rowsPerPage));
+
+    if (currentPage > Math.ceil(filteredData.length / rowsPerPage)) {
+      setCurrentPage(Math.ceil(filteredData.length / rowsPerPage));
+    } else if (currentPage < 1 && filteredData.length !== 0) {
+      setCurrentPage(1);
+    }
 
     if (isRealTime) {
-      setCurrentPage(Math.ceil(data.length / rowsPerPage));
+      setCurrentPage(Math.ceil(filteredData.length / rowsPerPage));
     }
-  }, [data, rowsPerPage]);
+  }, [data, rowsPerPage, selectedLocation, selectedDevice, signalStrengthRange]);
 
 
   
