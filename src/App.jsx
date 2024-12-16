@@ -10,7 +10,7 @@ function App() {
   const [selectedDevice, setSelectedDevice] = useState('All');
   const [signalStrengthRange, setSignalStrengthRange] = useState([0, 100]);
   const [rowsPerPage, setRowsPerPage] = useState(5); // Shared state for rows per page
-  const [isRealTime, setIsRealTime] = useState(false);
+  const [isRealTime, setIsRealTime] = useState(true);
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
